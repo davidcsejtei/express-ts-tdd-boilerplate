@@ -23,29 +23,3 @@ import getAllUsersRequest from './requests/getAllUsers';
 app.get('/users/all/:id', getAllUsersRequest);
 
 export default app;
-
-/* import { ProductLogger, UserLogger } from "./logger/Logger";
-import { getLogger } from "./logger/loggerFactory";
-
-function getUserRequest() {
-    const logger = getLogger(UserLogger);
-    const user = {
-        name: 'David',
-        age: 30
-    };
-    logger.log({ ...user, ize: '' });
-    return user;
-}
-
-function getProductRequest() {
-    const logger = getLogger(ProductLogger);
-    const product = {
-        name: 'Table',
-        size: 12
-    };
-    logger.log(product);
-    return product;
-}
-
-getUserRequest();
-getProductRequest();*/
