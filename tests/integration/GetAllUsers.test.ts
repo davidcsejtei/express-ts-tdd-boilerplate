@@ -6,7 +6,6 @@ jest.mock('../../src/middlewares/Authentication.middleware', () => jest.fn((req,
 describe('Get all users request', () => {
     afterAll(() => {
         server.close();
-        jest.clearAllMocks();
     });
 
     test('with a valid ID parameter', async () => {
