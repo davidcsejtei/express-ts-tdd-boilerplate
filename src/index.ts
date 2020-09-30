@@ -18,8 +18,9 @@ app.use((request: Request, response: Response, next: NextFunction) => {
     next();
 });
 
-import getAllUsersRequest from './requests/getAllUsers';
+import getAllUsersRequest from './requests/GetAllUsers';
+import authMiddleware from "./middlewares/Authentication.middleware";
 
-app.get('/users/all/:id', getAllUsersRequest);
+app.get('/users/all/:id', authMiddleware, getAllUsersRequest);
 
 export default app;

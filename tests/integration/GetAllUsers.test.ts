@@ -1,9 +1,12 @@
 import app, { server } from '../../src/index';
 import request from 'supertest';
 
+jest.mock('../../src/middlewares/Authentication.middleware', () => jest.fn((req, res, next) => next()));
+
 describe('Get all users request', () => {
     afterAll(() => {
         server.close();
+        jest.clearAllMocks();
     });
 
     test('with a valid ID parameter', async () => {
@@ -25,7 +28,7 @@ describe('Get all users request', () => {
         const invalidIdParameter = "d12";
         const { status, text } = await request(app).get(`/users/all/${invalidIdParameter}`);
         const expectedResponseObject = {
-            error: `Invalid id parameter: ${invalidIdParameter}`
+            error: `Invalid Id parameter: ${invalidIdParameter}`
         };
 
         const expectedResponseStatusCode = 500;

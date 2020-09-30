@@ -18,7 +18,6 @@ describe('Get all users request', () => {
     };
 
     beforeEach(() => {
-        jest.clearAllMocks();
         mockLogger();
         mockRequest = {
             statusCode: 0,
@@ -48,15 +47,16 @@ describe('Get all users request', () => {
     });
 
     test('with a invalid ID parameter', async () => {
+        const invalidIdParameter = "d1df23";
         mockRequest = {
             ...mockRequest,
             params: {
-                id: "d1df23"
+                id: invalidIdParameter
             }
         };
 
         const expectedStatusCode = 500;
-        const expectedResponseObject = { error: "Invalid ID parameter" };
+        const expectedResponseObject = { error: `Invalid Id parameter: ${invalidIdParameter}` };
 
         getAllUsers(mockRequest as Request, mockResponse as Response);
 

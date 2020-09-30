@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import InvalidIdParameter from "../errors/InvalidIDParameter";
+import InvalidIdParameter from "../errors/InvalidIdParameter";
 import { getLogger } from "../loggers/LoggerFactory";
 import UserLogger from "../loggers/UserLogger";
 import isValidInteger from "../validators/NumberValidator";

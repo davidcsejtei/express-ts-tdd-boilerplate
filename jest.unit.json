@@ -3,5 +3,7 @@
     "coverageDirectory": "../coverage",
     "testMatch": [
         "**/?(*.)+(spec).ts?(x)"
-    ]
+    ],
+    "resetMocks": true,
+    "clearMocks": true
 }
