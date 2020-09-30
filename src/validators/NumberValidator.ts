@@ -1,6 +1,18 @@
 const isValidInteger = (input: any): input is number => {
-    return canBeHexNumber(input) || hasLeadingZero(input)
-        ? false : Number.isSafeInteger(+input);
+    if (!input) {
+        return false;
+    } else {
+        if (typeof input === "number") {
+            return Number.isInteger(input);
+        } else {
+            return !isValidType(input) || canBeHexNumber(input) || hasLeadingZero(input)
+                ? false : Number.isSafeInteger(+input);
+        }
+    }
+}
+
+const isValidType = (input: any): boolean => {
+    return typeof input !== "object";
 }
 
 const canBeHexNumber = (input: string): boolean => {

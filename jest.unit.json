@@ -1,5 +1,7 @@
 {
     "preset": "ts-jest",
-    "rootDir": "./src",
-    "coverageDirectory": "../coverage"
+    "coverageDirectory": "../coverage",
+    "testMatch": [
+        "**/?(*.)+(spec).ts?(x)"
+    ]
 }

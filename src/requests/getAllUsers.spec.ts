@@ -1,7 +1,7 @@
 import getAllUsers from "./getAllUsers";
 import { Request, Response } from "express";
 
-import { getLogger } from '../loggers/loggerFactory';
+import { getLogger } from '../loggers/LoggerFactory';
 jest.mock("../loggers/loggerFactory");
 
 describe('Get all users request', () => {

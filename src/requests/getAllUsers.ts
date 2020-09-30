@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
-import { UserLogger } from "../loggers/Logger";
-import { getLogger } from "../loggers/loggerFactory";
+import { getLogger } from "../loggers/LoggerFactory";
+import UserLogger from "../loggers/UserLogger";
 import isValidInteger from "../validators/NumberValidator";
 
 const getAllUsers = (request: Request, response: Response) => {

@@ -1,4 +1,6 @@
 {
     "preset": "ts-jest",
-    "rootDir": "./tests"
+    "testMatch": [
+        "**/?(*.)+(test).ts?(x)"
+    ]
 }
