@@ -6,7 +6,8 @@ import bodyParser from 'body-parser';
 require('dotenv').config();
 
 const app = express();
-const server = new http.Server(app).listen(process.env.API_PORT);
+export const server = new http.Server(app);
+server.listen(process.env.API_PORT);
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -20,6 +21,8 @@ app.use((request: Request, response: Response, next: NextFunction) => {
 import getAllUsersRequest from './requests/getAllUsers';
 
 app.get('/users/all/:id', getAllUsersRequest);
+
+export default app;
 
 /* import { ProductLogger, UserLogger } from "./logger/Logger";
 import { getLogger } from "./logger/loggerFactory";
