@@ -1,4 +1,5 @@
 import { Request, Response } from "express";
+import InvalidIdParameter from "../errors/InvalidIDParameter";
 import { getLogger } from "../loggers/LoggerFactory";
 import UserLogger from "../loggers/UserLogger";
 import isValidInteger from "../validators/NumberValidator";
@@ -14,7 +15,7 @@ const getAllUsers = (request: Request, response: Response) => {
         response.send({ user: user });
     } else {
         response.statusCode = 500;
-        response.send({ error: 'Invalid ID parameter' });
+        response.send({ error: new InvalidIdParameter(id).message });
     }
 };
 

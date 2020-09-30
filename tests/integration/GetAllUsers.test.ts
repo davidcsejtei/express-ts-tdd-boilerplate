@@ -20,4 +20,17 @@ describe('Get all users request', () => {
         expect(status).toEqual(expectedResponseStatusCode);
         expect(text).toEqual(JSON.stringify(expectedResponseObject));
     });
+
+    test('with an invalid ID parameter', async () => {
+        const invalidIdParameter = "d12";
+        const { status, text } = await request(app).get(`/users/all/${invalidIdParameter}`);
+        const expectedResponseObject = {
+            error: `Invalid id parameter: ${invalidIdParameter}`
+        };
+
+        const expectedResponseStatusCode = 500;
+
+        expect(status).toEqual(expectedResponseStatusCode);
+        expect(text).toEqual(JSON.stringify(expectedResponseObject));
+    });
 });
