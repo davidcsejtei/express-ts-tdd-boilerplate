@@ -1,3 +1,4 @@
+import Logger from './Logger';
 import { getLogger } from './LoggerFactory'
 import ProductLogger from './ProductLogger';
 import UserLogger from './UserLogger';
